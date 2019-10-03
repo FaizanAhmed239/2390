@@ -1,0 +1,28 @@
+/*
+This is a table generator which asks for the Number for which you want the table, start of the table and end of the table
+provides FORMATTED output
+*/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n1,n2,X,ans;
+    printf("Which No's table do you want?: ");
+    scanf("%d", &X);
+    printf("Start: ");
+    scanf("%d", &n1);
+    printf("End: ");
+    scanf("%d", &n2);
+
+    while(n1 <= n2)
+    {
+        ans = X * n1;
+        printf("%d x %d = %d\n", X,n1,ans);
+        n1++;
+    }
+
+    return 0;
+}
