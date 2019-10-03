@@ -1,0 +1,126 @@
+/*
+Link for the question paper:
+https://drive.google.com/open?id=17LrKFA4ojIxhUgShHxkXu-GB9l2EAksE
+This program provides FORMATTED output
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+/*
+Name: Faizan Ahmed
+Reg#: SP19-BCS-037
+Section A
+                                        o	Title: Assignment 1 (PaySlip Generator)
+                                        o	Type: Standard
+
+
+*/
+int main()
+{
+    int age=0,YeOfExp=0,bsal=0,rpay=0,no_inc=0,inc_am=0,HRA=0,SSB=0,ARA=0,grosspay=0,IT=0,mIT=0,AI=0,char_don=0,GPF=0,Deduct=0,NETpay=0;
+    float ITperc;
+    char grade;
+
+    printf("Enter your grade, age and years of experience: ");
+    scanf("%c %d %d", &grade, &age, &YeOfExp);
+    printf("__________________________________________________\n");
+    printf("Basic Pay\n");
+    printf("___________________\n");
+
+    no_inc = YeOfExp;
+    switch (grade)
+    {
+    case 'W':
+    case 'w':
+        bsal = 10000;
+        inc_am = 700;
+        if (age>40)
+        {
+            ARA = 3000;
+        }
+        else
+        {
+            ARA = 1500;
+        }
+
+        break;
+    case 'X':
+    case 'x':
+        bsal = 12900;
+        inc_am = 910;
+        ARA = 1500;
+        break;
+    case 'Y':
+    case 'y':
+        bsal = 21700;
+        inc_am = 1500;
+        ARA = 1500;
+        break;
+    case 'Z':
+    case 'z':
+        bsal = 32600;
+        inc_am = 2800;
+        ARA = 1500;
+        break;
+
+    default:
+        printf("Error! Input entered is incorrect!");
+    }
+
+        rpay = bsal + (inc_am*no_inc);
+
+        HRA = 0.45*rpay;
+        SSB = bsal * 30/100;
+
+        grosspay = rpay+HRA+SSB+ARA;
+        char_don = grosspay%100;
+        grosspay = grosspay - char_don;
+        AI = 12*grosspay;
+        if (AI>=0 && AI<= 400000)
+        {
+            ITperc = 0;
+            IT = (0/100)*AI;
+        }
+        else if (AI>400000 && AI<=650000)
+        {
+            ITperc = 2.5;
+            IT = (0.025)*AI;
+        }
+        else if (AI>650000 && AI<=1000000)
+        {
+            ITperc = 4.75;
+            IT = (0.0475)*AI;
+        }
+        else if (AI>1000000 && AI<=1500000)
+        {
+            ITperc = 7;
+            IT = (0.07)*AI;
+        }
+        else if (AI>1500000)
+        {
+            ITperc = 11.5;
+            IT = (0.115)*AI;
+        }
+        mIT = IT/12;
+        GPF = 0.1*grosspay;
+        Deduct = char_don + mIT + GPF;
+        NETpay = grosspay - Deduct;
+        printf("Basic Salary:                      %d\n",bsal);
+        printf("No of Increments:                  %d\n",no_inc);
+        printf("Running Pay:                       %d\n\n",rpay);
+        printf("Allowances\n");
+        printf("___________________\n");
+        printf("House Rent Allowance:              %d\n",HRA);
+        printf("Social Security Benefit:           %d\n",SSB);
+        printf("Adhoc Relief Allowance:            %d\n\n",ARA);
+        printf("Gross Pay:                         %d\n\n",grosspay);
+        printf("Deductions\n");
+        printf("___________________\n");
+        printf("Income Tax (at %4.2f%%):             %d\n",ITperc,mIT);
+        printf("General Provident Fund:            %d\n",GPF);
+        printf("Donation:                          %d\n",char_don);
+        printf("Total Deductions;                  %d\n\n\n",Deduct);
+        printf("NET PAY:                           %d\n\n",NETpay);
+
+    return 0;
+}
