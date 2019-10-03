@@ -48,8 +48,8 @@ int main()
     }
     else                                       //CASE5
     {
-        even = 0
-        printf("Numbers are same!")
+        even = 0;
+        printf("Numbers are same!\n");
     }
 
 
