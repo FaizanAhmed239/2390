@@ -1,0 +1,17 @@
+/*
+Question.)	Print sequence of numbers:  99, 88, 77, 66, 55, 44, 33, 22, 11, 0
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int start = 99, end = 0;
+    while(start>end)
+    {
+        start = start - 11;
+        printf("%d\n", start);
+    }
+    return 0;
+}
