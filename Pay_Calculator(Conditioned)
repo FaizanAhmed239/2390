@@ -1,0 +1,65 @@
+/*
+This program calculates wages for employees of a company. No number for the employees has been provided
+The purpose of this program is to design the payment calculation system of a
+company. So, you have to write a program, which inputs employee data of
+all employees in the company. Each employee will have three data items:
+1. an identification number,
+2. the hourly wage rate, and
+3. the number of hours worked during a given week.
+Each employee is to be paid time and a half for all hours worked over 40. A tax amount of 3.625% of
+gross salary will be deducted. The program output should show the employee’s number and net pay.
+Display the total payroll and the average amount paid at the end of the run.
+Note: The program should include a function ComputeNetSalary. Identify the arguments and output of
+this function yourself.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+int ComputeNetSalary(int a, int b);
+int main()
+{
+    int reg_no=0,wage_rate=0,hrs=0, sentinel=0,empl = 0,salary=0, sal=0, average=0;
+
+    while(sentinel!= -1)
+    {
+         printf("Enter your registration number: ");
+         scanf("%d", &reg_no);
+         empl++;
+         printf("Input hourly wage rate: ");
+         scanf("%d" , &wage_rate);
+         printf("Input number of hours worked during the week: ");
+         scanf("%d",&hrs);
+         salary = ComputeNetSalary(hrs,wage_rate);
+         sal = sal + salary;
+         printf("_____________________________________\n\n");
+         printf("Registration ID: %d\n", reg_no);
+         printf("Net Salary is: %d\n", salary);
+         printf("End?(0 to continue and -1 to end)  ");
+         scanf("%d", &sentinel);
+
+    }
+   
+    average = sal/empl;
+    printf("Average Salary is: %d", average);
+
+    return 0;
+}
+
+int ComputeNetSalary(int hours, int rate)
+{
+    int netwage=0, grosspay=0, overhrs=0, tax=0;
+    overhrs = hours - 40;
+    if (overhrs<0)
+    {
+        grosspay = (hours*rate);
+     
+    }
+    else
+    {
+        grosspay = (hours*rate) + (overhrs*rate*1.5);
+     
+    }
+  tax = (0.03625*grosspay);
+        netwage = grosspay - tax;
+        return netwage;
+}
