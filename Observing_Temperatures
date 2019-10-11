@@ -1,0 +1,44 @@
+/*
+This program takes 20 temperatures and checks them on different conditions. For Hot Days, Pleasent Days and Cold Days!
+Conditions are that for a hot day, temperature should be greater or equal to 85.
+For a pleasent day, it should be greater than 59 and less than 85
+For a cold day, it should be less than 60
+Average temperature is also calculated!
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int count=1, hotd=0, pleasd=0, coldd=0, input=0, tempsum=0, avg=0;
+
+    while(count<= 20)
+    {
+        printf("Enter the temperature: ");
+        scanf("%d", &input);
+        tempsum = tempsum + input;
+
+        if (input>=85)                                //Conditions start here
+        {
+            hotd = hotd + 1;
+        }
+        else if ((input>=60) && (input<=84))
+        {
+            pleasd = pleasd + 1;
+        }
+        else if (input<60)
+        {
+            coldd = coldd + 1;
+        }
+      count = count + 1;                             // End here
+    }
+     avg = tempsum / 20;                             //Average Temperature
+     printf("\nHot Days: %d", hotd);
+     printf("\nPleasant Days: %d", pleasd);
+     printf("\nCold Days: %d", coldd);
+     printf("Average Temperature: %d", avg);
+    return 0;
+}
+
