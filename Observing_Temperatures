@@ -4,8 +4,7 @@ Conditions are that for a hot day, temperature should be greater or equal to 85.
 For a pleasent day, it should be greater than 59 and less than 85
 For a cold day, it should be less than 60
 Average temperature is also calculated!
-
-
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
