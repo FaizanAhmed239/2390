@@ -1,0 +1,41 @@
+/*
+Write a program to add first seven terms of the following series using a for loop: 
+(1/1!) + (2/2!) + (3/3!) . . . . . . . . . . . . . (7/7!)
+
+Note: n! represents factorial of n, which is computed as n*(n-1)*(n-2)…*2*1.
+Hint: 
+1.	Create a separate function for computing factorial.
+2.	Apply the running sum pattern on each term of above equation.
+
+*/
+
+
+int Factorial(int a);                     //Function Declaration
+int main()
+{
+int  num=1;
+float sum=0;
+
+    while(num<8)
+    {
+        sum = sum + ((double)num/Factorial(num));
+        num = num + 1;
+    }
+
+    printf("Answer is: %f", sum);
+
+
+    return 0;
+}
+
+int Factorial(int N)
+{
+    int count=1, sm=1;
+    count = N+1;
+    while (count!=1)
+    {
+        sm = sm * (count-1);
+        count = count - 1;
+    }
+    return sm;
+}
